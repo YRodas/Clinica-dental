@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.YohanRodas.controller.MenuPrincipalController">
+   <children>
+      <ImageView fitHeight="518.0" fitWidth="625.0" layoutX="-1.0" layoutY="-54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Fondo.png" />
+         </image>
+      </ImageView>
+      <MenuBar layoutY="-5.0" stylesheets="@../resource/ClinicaDental.css">
+        <menus>
+          <Menu mnemonicParsing="false" text="Modulos">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#ventanaEspecialidades" style="-fx-text-fill: #000000;" text="Especialidades" />
+                  <MenuItem mnemonicParsing="false" onAction="#ventanaPacientes" style="-fx-text-fill: #000000;" text="Pacientes" />
+                  <MenuItem mnemonicParsing="false" onAction="#ventanaDoctores" style="-fx-text-fill: #000000;" text="Doctores" />
+                  <MenuItem mnemonicParsing="false" onAction="#ventanaMedicamentos" style="-fx-text-fill: #000000;" text="Medicamentos" />
+                  <MenuItem mnemonicParsing="false" onAction="#ventanaRecetas" style="-fx-text-fill: #000000;" text="Recetas" />
+                  <MenuItem mnemonicParsing="false" onAction="#ventanaDetalleReceta" style="-fx-text-fill: #000000;" text="Detalles Recetas" />
+                  <MenuItem mnemonicParsing="false" onAction="#ventanaCitas" style="-fx-text-fill: #000000;" text="Citas" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Reportes">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#imprimirEspecialidades" style="-fx-text-fill: #000000;" text="Especialidades" />
+                  <MenuItem mnemonicParsing="false" onAction="#imprimirPacientes" style="-fx-text-fill: #000000;" text="Pacientes" />
+                  <MenuItem mnemonicParsing="false" onAction="#imprimirDoctores" style="-fx-text-fill: #000000;" text="Doctores" />
+                  <MenuItem mnemonicParsing="false" onAction="#imprimirMedicamentos" style="-fx-text-fill: #000000;" text="Medicamentos" />
+                  <MenuItem mnemonicParsing="false" onAction="#imprimirRecetas" style="-fx-text-fill: #000000;" text="Recetas" />
+                  <MenuItem mnemonicParsing="false" onAction="#imprimirDetalleReceta" style="-fx-text-fill: #000000;" text="Detalles Recetas" />
+                  <MenuItem mnemonicParsing="false" onAction="#imprimirCitas" style="-fx-text-fill: #000000;" text="Citas" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="?">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#ventanaProgramador" style="-fx-text-fill: #000000;" text="Programador" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

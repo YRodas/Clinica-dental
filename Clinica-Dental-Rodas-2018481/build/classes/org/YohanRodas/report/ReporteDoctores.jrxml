@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteDoctores" language="groovy" pageWidth="616" pageHeight="792" columnWidth="576" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="17f694d4-f5bc-4e3a-ac4a-46a3422aa725">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     *,
+     especialidades.`codigoEspecialidad` AS especialidades_codigoEspecialidad,
+     especialidades.`descripcion` AS especialidades_descripcion,
+     Doctores.`numeroColegiado` AS Doctores_numeroColegiado,
+     Doctores.`nombresDoctor` AS Doctores_nombresDoctor,
+     Doctores.`apellidosDoctor` AS Doctores_apellidosDoctor,
+     Doctores.`telefonoContacto` AS Doctores_telefonoContacto,
+     Doctores.`codigoEspecialidad` AS Doctores_codigoEspecialidad
+FROM
+     `especialidades` especialidades INNER JOIN `Doctores` Doctores ON especialidades.`codigoEspecialidad` = Doctores.`codigoEspecialidad`]]>
+	</queryString>
+	<field name="codigoEspecialidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeroColegiado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombresDoctor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidosDoctor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefonoContacto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="especialidades_codigoEspecialidad" class="java.lang.Integer"/>
+	<field name="especialidades_descripcion" class="java.lang.String"/>
+	<field name="Doctores_numeroColegiado" class="java.lang.Integer"/>
+	<field name="Doctores_nombresDoctor" class="java.lang.String"/>
+	<field name="Doctores_apellidosDoctor" class="java.lang.String"/>
+	<field name="Doctores_telefonoContacto" class="java.lang.String"/>
+	<field name="Doctores_codigoEspecialidad" class="java.lang.Integer"/>
+	<background>
+		<band height="752" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="576" height="752" uuid="e709c4d8-a972-4945-9f75-6bae683159b5"/>
+				<imageExpression><![CDATA["C:\\Users\\YOHAN\\Desktop\\ClinicaDentalRodas-2018481\\src\\org\\YohanRodas\\image\\Fondo reportes.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="211" y="21" width="148" height="35" uuid="0a165b3a-bd17-4394-8856-c9bfd465ef8f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Doctores]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="11" width="93" height="20" uuid="82043821-8dd2-49cd-b7d1-31e6dbdafc63"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Numero Colegiado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="5" width="80" height="34" uuid="0a176742-dd1b-4c7e-b820-73fbba24c92e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nombre del Doctor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="5" width="78" height="34" uuid="4143ef36-f46c-4ffc-b20e-e16db3bb6838"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Apellido del Doctor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="5" width="88" height="34" uuid="07fd04bb-fb47-4048-ad9c-03e85b2d4048"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Telefono de Contacto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="5" width="72" height="34" uuid="873d75d4-3db3-43d2-8529-566f9b491716"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Codigo de Especialidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="12" width="68" height="20" uuid="0009b5a5-0adc-4139-8710-62f9b7f343b4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="115" y="5" width="90" height="27" uuid="3049ee61-4895-4fa2-9ee2-aa4ed4152a07"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombresDoctor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="7" width="85" height="27" uuid="45ae7877-e580-4d5c-8746-76599709ef60"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{apellidosDoctor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="307" y="8" width="88" height="20" uuid="d1467a72-00f5-4c53-acf0-33c731e48130"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telefonoContacto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="8" width="72" height="20" uuid="8f6980b3-77da-496a-b372-b8fe9d6fa86a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{codigoEspecialidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="0" width="82" height="38" uuid="c839fa65-65d3-4c08-9451-a986b482f2aa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="8" width="93" height="20" uuid="1ad75511-6b2a-413b-b157-5b57eb87708f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Doctores_numeroColegiado}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="38" width="575" height="1" forecolor="#00CCCC" uuid="8d5be31a-b41e-4ef8-98d2-40e4f8f654c8"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

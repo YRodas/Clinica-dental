@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteDetalleRecetas" language="groovy" pageWidth="566" pageHeight="792" columnWidth="526" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="436217cd-7e83-4d09-87e8-75806719b790">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     detallereceta.`codigoDetalleReceta` AS detallereceta_codigoDetalleReceta,
+     detallereceta.`dosis` AS detallereceta_dosis,
+     detallereceta.`codigoReceta` AS detallereceta_codigoReceta,
+     detallereceta.`codigoMedicamento` AS detallereceta_codigoMedicamento,
+     recetas.`codigoReceta` AS recetas_codigoReceta,
+     recetas.`fechaReceta` AS recetas_fechaReceta,
+     recetas.`numeroColegiado` AS recetas_numeroColegiado,
+     medicamentos.`codigoMedicamento` AS medicamentos_codigoMedicamento,
+     medicamentos.`nombreMedicamento` AS medicamentos_nombreMedicamento
+FROM
+     `recetas` recetas INNER JOIN `detallereceta` detallereceta ON recetas.`codigoReceta` = detallereceta.`codigoReceta`
+     INNER JOIN `medicamentos` medicamentos ON detallereceta.`codigoMedicamento` = medicamentos.`codigoMedicamento`]]>
+	</queryString>
+	<field name="detallereceta_codigoDetalleReceta" class="java.lang.Integer"/>
+	<field name="detallereceta_dosis" class="java.lang.String"/>
+	<field name="detallereceta_codigoReceta" class="java.lang.Integer"/>
+	<field name="detallereceta_codigoMedicamento" class="java.lang.Integer"/>
+	<field name="recetas_codigoReceta" class="java.lang.Integer"/>
+	<field name="recetas_fechaReceta" class="java.sql.Date"/>
+	<field name="recetas_numeroColegiado" class="java.lang.Integer"/>
+	<field name="medicamentos_codigoMedicamento" class="java.lang.Integer"/>
+	<field name="medicamentos_nombreMedicamento" class="java.lang.String"/>
+	<background>
+		<band height="752" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="526" height="752" uuid="452465d5-549e-4d17-a0b7-7dc6e176ef06"/>
+				<imageExpression><![CDATA["C:\\Users\\YOHAN\\Desktop\\ClinicaDentalRodas-2018481\\src\\org\\YohanRodas\\image\\Fondo reportes.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="161" y="13" width="205" height="35" uuid="bc4dab62-de04-495c-bcb3-b1ef26c5eee7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Detalle de las recetas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="0" width="100" height="31" uuid="749aba93-f83f-49cb-93c5-1680f1057051"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Codigo del detalle de receta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="4" width="100" height="20" uuid="3bc6ae6e-a3da-44a8-98f5-4c1f2755b9bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Dosis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="5" width="100" height="20" uuid="bdf57ffb-c38b-493b-bb8a-adaaf7f8a0ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha de la receta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="297" y="0" width="100" height="31" uuid="608c0abe-11bd-4381-820b-56253cdf2726"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nombre del medicamento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="13" y="14" width="100" height="20" uuid="0518d07f-4c55-413e-85c3-599b8325ff54"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{detallereceta_codigoDetalleReceta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="5" width="160" height="39" uuid="f7d6e653-ea01-42b3-abc2-b8b9cb96e4b3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{detallereceta_dosis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="413" y="15" width="100" height="20" uuid="54af051f-1710-4a80-a5f0-51adeca0a591"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{recetas_fechaReceta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="297" y="15" width="100" height="20" uuid="ba5b987a-f82d-4bfc-920e-9811e8145b7c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{medicamentos_nombreMedicamento}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="6" y="49" width="515" height="1" forecolor="#00CCCC" uuid="0c72da62-4cca-40aa-bdce-5db3ad47fcbd"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

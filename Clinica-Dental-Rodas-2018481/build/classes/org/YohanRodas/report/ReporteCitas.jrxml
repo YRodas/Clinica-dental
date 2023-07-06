@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteCitas" language="groovy" pageWidth="832" pageHeight="792" columnWidth="792" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5b69bbe8-268f-4b8a-ae68-0c24cc4e3cf7">
+	<property name="ireport.zoom" value="0.8264462809917354"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     citas.`codigoCita` AS citas_codigoCita,
+     citas.`fechaCita` AS citas_fechaCita,
+     citas.`horaCita` AS citas_horaCita,
+     citas.`tratamiento` AS citas_tratamiento,
+     citas.`descripcionCondicionActual` AS citas_descripcionCondicionActual,
+     doctores.`nombresDoctor` AS doctores_nombresDoctor,
+     pacientes.`nombresPacientes` AS pacientes_nombresPacientes
+FROM
+     `doctores` doctores INNER JOIN `citas` citas ON doctores.`numeroColegiado` = citas.`numeroColegiado`
+     INNER JOIN `pacientes` pacientes ON citas.`codigoPaciente` = pacientes.`codigoPaciente`]]>
+	</queryString>
+	<field name="citas_codigoCita" class="java.lang.Integer"/>
+	<field name="citas_fechaCita" class="java.sql.Date"/>
+	<field name="citas_horaCita" class="java.sql.Time"/>
+	<field name="citas_tratamiento" class="java.lang.String"/>
+	<field name="citas_descripcionCondicionActual" class="java.lang.String"/>
+	<field name="doctores_nombresDoctor" class="java.lang.String"/>
+	<field name="pacientes_nombresPacientes" class="java.lang.String"/>
+	<background>
+		<band height="752" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="792" height="752" uuid="4c7efa01-2d31-4cf3-b0ca-8891e7f64553"/>
+				<imageExpression><![CDATA["C:\\Users\\YOHAN\\Desktop\\ClinicaDentalRodas-2018481\\src\\org\\YohanRodas\\image\\Fondo reportes.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="271" y="0" width="251" height="54" uuid="10a9433e-8172-462a-9c22-852a81775781"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Citas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="22" width="100" height="20" uuid="caa27511-7ce9-40c2-a675-193cb3bf4c4f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Codigo de la Cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="22" width="100" height="20" uuid="b6065016-c169-4583-8126-6832981b1c29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Fecha de la Cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="22" width="100" height="20" uuid="e9ec4da2-f095-405c-876c-617f1bd0511a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Hora de la Cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="22" width="100" height="20" uuid="98e9d7dc-3a87-48af-9f36-216bdee20561"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Tratamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="22" width="100" height="31" uuid="1a677199-bea9-423d-bff6-736bddaf4983"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Descripcion de la condicion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="556" y="22" width="100" height="20" uuid="4f419e7a-02cb-4983-ba99-ef3ba86ee2c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Nombre del Doctor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="667" y="22" width="100" height="31" uuid="2dc573e1-12dd-4056-807c-b407f2ec317c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Nombre del Paciente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="82" splitType="Stretch">
+			<textField>
+				<reportElement x="23" y="23" width="100" height="20" uuid="73ca01b4-984c-4d8e-a41e-17ce3e1f8d81"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{citas_codigoCita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="24" width="100" height="20" uuid="e6bd1f68-247d-4d2a-ae5c-2c11605acc36"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{citas_fechaCita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="24" width="100" height="20" uuid="973f10c7-31d0-4ddf-a88d-e39e0f158ded"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{citas_horaCita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="1" width="100" height="73" uuid="4ee14152-fe51-4c2c-8495-237231601ec9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{citas_tratamiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="1" width="100" height="73" uuid="87cda538-f232-4ef7-94b8-5de19e2bec18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{citas_descripcionCondicionActual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="556" y="25" width="100" height="20" uuid="f57cda21-b611-4c5f-a95c-a58d85d26338"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{doctores_nombresDoctor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="667" y="25" width="100" height="20" uuid="759ba39e-10fe-4907-af67-3d798a32d5d1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pacientes_nombresPacientes}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="21" y="78" width="751" height="1" forecolor="#00CCCC" uuid="684e8530-48ef-4712-91bc-2a9e63eab94f"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

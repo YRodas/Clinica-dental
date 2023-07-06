@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteRecetas" language="groovy" pageWidth="546" pageHeight="792" columnWidth="506" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="25fcbbfb-4aa5-4d46-9c86-bb3855fa4151">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     recetas.`codigoReceta` AS recetas_codigoReceta,
+     recetas.`fechaReceta` AS recetas_fechaReceta,
+     recetas.`numeroColegiado` AS recetas_numeroColegiado,
+     doctores.`numeroColegiado` AS doctores_numeroColegiado,
+     doctores.`nombresDoctor` AS doctores_nombresDoctor,
+     doctores.`telefonoContacto` AS doctores_telefonoContacto
+FROM
+     `doctores` doctores INNER JOIN `recetas` recetas ON doctores.`numeroColegiado` = recetas.`numeroColegiado`]]>
+	</queryString>
+	<field name="recetas_codigoReceta" class="java.lang.Integer"/>
+	<field name="recetas_fechaReceta" class="java.sql.Date"/>
+	<field name="recetas_numeroColegiado" class="java.lang.Integer"/>
+	<field name="doctores_numeroColegiado" class="java.lang.Integer"/>
+	<field name="doctores_nombresDoctor" class="java.lang.String"/>
+	<field name="doctores_telefonoContacto" class="java.lang.String"/>
+	<background>
+		<band height="752" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="506" height="752" uuid="5d7cb86c-191e-4264-bde5-e2d10523707a"/>
+				<imageExpression><![CDATA["C:\\Users\\YOHAN\\Desktop\\ClinicaDentalRodas-2018481\\src\\org\\YohanRodas\\image\\Fondo reportes.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="210" y="14" width="84" height="33" uuid="90bf2af1-161d-4bac-a23e-d99e27ec72b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Recetas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="9" width="100" height="20" uuid="01c7eb93-cd13-4199-82da-92e3efd0de02"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Codigo de la Receta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="9" width="100" height="20" uuid="65a3f809-33a7-4cc0-8fc3-9d8e7cf6bf9a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha de la Receta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="9" width="100" height="20" uuid="df062730-611f-4827-9160-afc12a34e895"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nombre del Doctor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="0" width="90" height="38" uuid="feb4a6ed-78e6-4260-be35-8c69a93e7940"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Telefono de Contacto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="17" y="0" width="100" height="20" uuid="34087de9-f976-4844-8836-12ab7deccbd9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{recetas_codigoReceta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="0" width="100" height="20" uuid="e8b8c561-4f65-4513-ad84-468a2176572c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{recetas_fechaReceta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="266" y="0" width="112" height="20" uuid="bd721002-a563-40ef-92d0-fc7156ce4e06"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{doctores_nombresDoctor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="388" y="0" width="100" height="20" uuid="81fe88fe-bfb3-4bd4-99d6-a453cefaae91"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{doctores_telefonoContacto}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="10" y="27" width="485" height="1" forecolor="#00CCCC" uuid="45dd716d-d4c7-44b7-9224-70859588be4a"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
